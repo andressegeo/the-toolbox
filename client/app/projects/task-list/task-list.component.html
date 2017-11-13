@@ -28,9 +28,10 @@
 
     </mat-menu>
     <mat-spinner [diameter]="30" [strokeWidth]="3" [hidden]="!loading"></mat-spinner>
-    <div [hidden]="loading" (click)="openTask(task.value.id)" class="div-task-container" *ngFor="let task of tasksSumUp;let i = index">
-        <hc-task-list-item class="clickable" (onDeletedTask)="deleteTask($event.taskId)" [task]="task.value"></hc-task-list-item>
+    <div [dragula]='task_list' [dragulaModel]='tasksSumUp'  [hidden]="loading" (click)="openTask(task.value.id)" class="div-task-container" *ngFor="let task of tasksSumUp;let i = index">
+        <hc-task-list-item data-id="{{task.id}}" class="clickable" (onDeletedTask)="deleteTask($event.taskId)" [task]="task.value"></hc-task-list-item>
     </div>
+
 
     <div [hidden]="loading" class="div-add-card" (click)="insertItem()">Add a card ...</div>
 

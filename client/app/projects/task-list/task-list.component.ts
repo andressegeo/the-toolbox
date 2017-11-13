@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { DBService } from './../../db/db.service';
 import { UserInformationsService } from './../../auth/user-informations.service';
 import { UserInformations } from './../../auth/user-informations.model';
-
+import { DragulaService } from 'ng2-dragula';
 import { Observable, Subject } from 'rxjs';
 import { TaskDetailsComponent } from './../task-details/task-details.component';
 
@@ -19,9 +19,16 @@ export class TaskListComponent implements OnInit{
     constructor(
       private dbService: DBService,
       private router: Router,
-      private userInformationsService: UserInformationsService
-    ){}
-    
+      private userInformationsService: UserInformationsService,
+      private dragulaService: DragulaService
+    ){
+      dragulaService.drop.subscribe((value) => {
+        const [bagName, e, el] = value;
+        console.log(e.dataset.id);
+      });
+    }
+  
+
     @Input() taskList: object;
     @Input() set uncompletedTasksOnly(uncompletedTasksOnly: boolean) {
       this._uncompletedTasksOnly = uncompletedTasksOnly;

@@ -2,6 +2,7 @@ import { NgModule }      from '@angular/core';
 import { CommonModule }       from '@angular/common';
 import { RouterModule }   from '@angular/router';
 import { DBModule } from './../db/db.module';
+import { DragulaService } from 'ng2-dragula';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { AppCommonModule } from './../app-common/app-common.module'
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
@@ -28,6 +29,8 @@ import { QuillModule } from './../quill/quill.module';
 import { TaskCommentsComponent } from './task-comments/task-comments.component';
 import { TaskCommentComponent } from './task-comment/task-comment.component';
 import { EntityAffectationComponent } from './entity-affectation/entity-affectation.component';
+import { DragulaModule } from 'ng2-dragula';
+
 
 @NgModule({
   imports:      [
@@ -35,6 +38,7 @@ import { EntityAffectationComponent } from './entity-affectation/entity-affectat
     CommonModule,
     DBModule,
     FormsModule,
+    DragulaModule,
     ReactiveFormsModule,
     AppCommonModule,
     FlexLayoutModule,
@@ -86,7 +90,8 @@ import { EntityAffectationComponent } from './entity-affectation/entity-affectat
   ],
   exports: [ ],
   providers: [
-    GoogleColorsService
+    GoogleColorsService,
+    DragulaService
   ],
   entryComponents: [
     ProjectListItemComponent,
